@@ -25,7 +25,7 @@ public class Kitchen {
     }
 
     public static void second(List<Dish> list){
-        List<String> names =  list.stream()
+        List<String> names =  list.parallelStream()
                 .filter(dish -> dish.getCalories() < 300)
                 .sorted(Comparator.comparing(Dish::getCalories))
                 .map(Dish::getName)
