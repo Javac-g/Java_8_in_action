@@ -24,7 +24,14 @@ public class Kitchen {
         System.out.println(names);
     }
 
-
+    public static void second(List<Dish> list){
+        List<String> names =  list.stream()
+                .filter(dish -> dish.getCalories() < 300)
+                .sorted(Comparator.comparing(Dish::getCalories))
+                .map(Dish::getName)
+                .collect(Collectors.toList());
+        System.out.println(names);
+    }
     public static void main(String... args){
         List<Dish> dishes = List.of(
                 new Dish(900,true,Type.MEAT,"Chiken"),
@@ -38,8 +45,8 @@ public class Kitchen {
                 new Dish(150,true,Type.OTHER,"Soup")
 
         );
-
         first(dishes);
+        second(dishes);
 
     }
 }

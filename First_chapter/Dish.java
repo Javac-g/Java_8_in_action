@@ -39,7 +39,8 @@ public class Dish {
     public boolean equals(Object obj){
         if (this == obj){
             return true;
-        } else if (obj == null || getClass() != obj.getClass()) {
+        }
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
         Dish dish = (Dish)obj;
